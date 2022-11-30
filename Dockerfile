@@ -39,3 +39,11 @@ RUN install2.r --skipinstalled IRkernel \
     && rm -rf /tmp/downloaded_packages
 
 RUN r -e "IRkernel::installspec(prefix='${CONDA_DIR}')"
+
+# Set working directory so Jupyter knows where to start
+WORKDIR /home/rstudio
+
+# Set SHELL so Jupyter launches /bin/bash, not /bin/sh
+# /bin/sh doesn't have a lot of interactive features (like tab complete or functional arrow keys)
+# that people have come to expect.
+ENV SHELL=/bin/bash
