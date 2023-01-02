@@ -35,7 +35,9 @@ RUN mamba env update -p ${CONDA_DIR} -f /tmp/environment.yml \
     && find ${CONDA_DIR} -follow -type f -name '*.pyc' -delete
 
 # Install IRKernel
-RUN install2.r --skipinstalled IRkernel \
+RUN install2.r --skipinstalled \
+       IRkernel \
+       rstan \
     && rm -rf /tmp/downloaded_packages
 
 RUN r -e "IRkernel::installspec(prefix='${CONDA_DIR}')"
