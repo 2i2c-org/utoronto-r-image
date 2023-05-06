@@ -12,3 +12,5 @@ dependencies:
   - retrolab
   # Provide info on memory usage in JupyterLab & RetroLab
   - jupyter-resource-usage
+  # People still wanna pull stuff, even if into RStudio
+  - nbgitpuller==1.1.1
