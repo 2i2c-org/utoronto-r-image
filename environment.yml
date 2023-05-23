@@ -14,3 +14,8 @@ dependencies:
   - jupyter-resource-usage
   # People still wanna pull stuff, even if into RStudio
   - nbgitpuller==1.1.1
+
+  - pip
+
+  - pip:
+    - jupyter-shiny-proxy==1.1
