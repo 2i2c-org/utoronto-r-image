@@ -14,6 +14,9 @@ RUN echo "PATH=${PATH}" >> /usr/local/lib/R/etc/Renviron.site
 # from /etc/profile - so we rexport here.
 RUN echo "export PATH=${PATH}" >> /etc/profile
 
+# Install shiny-server
+RUN /rocker_scripts/install_shiny_server.sh
+
 # Install a specific version of mambaforge in ${CONDA_DIR}
 # Pick latest version from https://github.com/conda-forge/miniforge/releases
 ENV MAMBAFORGE_VERSION=22.9.0-2
