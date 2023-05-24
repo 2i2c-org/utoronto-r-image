@@ -37,6 +37,11 @@ RUN mamba env update -p ${CONDA_DIR} -f /tmp/environment.yml \
     && find ${CONDA_DIR} -follow -type f -name '*.a' -delete \
     && find ${CONDA_DIR} -follow -type f -name '*.pyc' -delete
 
+# Install R packages, cleanup temp package download location
+COPY install.R /tmp/install.R
+RUN /tmp/install.R && \
+        rm -rf /tmp/downloaded_packages/ /tmp/*.rds
+
 # Install IRKernel
 RUN install2.r --skipinstalled \
        IRkernel \
