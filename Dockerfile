@@ -43,6 +43,9 @@ RUN install2.r --skipinstalled \
        rstan \
     && rm -rf /tmp/downloaded_packages
 
+# Install learnr
+RUN install2.r learnr
+
 RUN r -e "IRkernel::installspec(prefix='${CONDA_DIR}')"
 
 # Set working directory so Jupyter knows where to start
