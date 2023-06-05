@@ -43,8 +43,24 @@ RUN install2.r --skipinstalled \
        rstan \
     && rm -rf /tmp/downloaded_packages
 
-# Install learnr
-RUN install2.r learnr
+# Install learnr and other requested packages in https://2i2c.freshdesk.com/a/tickets/741
+RUN install2.r --skipinstalled \
+    learnr \
+    XLConnect \
+    ggvis \
+    dygraphs \
+    DT \
+    network3D \
+    threeJS \
+    lme4 \
+    randomForest \
+    multcomp \
+    vcd \
+    glmnet \
+    caret \
+    ggmap \
+    quantmod \
+    && rm -rf /tmp/downloaded_packages
 
 RUN r -e "IRkernel::installspec(prefix='${CONDA_DIR}')"
 
