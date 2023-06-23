@@ -19,3 +19,5 @@ dependencies:
 
   - pip:
     - jupyter-shiny-proxy==1.1
+    # Based on request from Nathan Taback
+    - otter-grader==4.3.4
