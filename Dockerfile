@@ -44,6 +44,7 @@ RUN install2.r --skipinstalled \
     && rm -rf /tmp/downloaded_packages
 
 # Install learnr and other requested packages in https://2i2c.freshdesk.com/a/tickets/741
+# mosaic installed per https://2i2c.freshdesk.com/a/tickets/973
 RUN install2.r --skipinstalled \
     learnr \
     XLConnect \
@@ -60,6 +61,7 @@ RUN install2.r --skipinstalled \
     caret \
     ggmap \
     quantmod \
+    mosaic \
     && rm -rf /tmp/downloaded_packages
 
 RUN r -e "IRkernel::installspec(prefix='${CONDA_DIR}')"
