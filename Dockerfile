@@ -1,4 +1,4 @@
-FROM rocker/geospatial:4.2.2
+FROM rocker/geospatial:4.3.1
 
 # Install conda here, to match what repo2docker does
 ENV CONDA_DIR=/srv/conda
