@@ -1,0 +1,9 @@
+retrolab
+# Provide info on memory usage in JupyterLab & RetroLab
+jupyter-resource-usage
+# People still wanna pull stuff, even if into RStudio
+nbgitpuller==1.2.0
+
+jupyter-shiny-proxy==1.1
+# Based on request from Nathan Taback
+otter-grader==4.3.4
