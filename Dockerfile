@@ -1,13 +1,7 @@
 FROM rocker/binder:4.3.2
 
-USER root
-
-# Install python packages as root, since that's what is done upstream
-# This may change soon https://github.com/rocker-org/rocker-versioned2/issues/670
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache -r /tmp/requirements.txt
-
-USER ${NB_USER}
 
 # Install learnr and other requested packages in https://2i2c.freshdesk.com/a/tickets/741
 # mosaic installed per https://2i2c.freshdesk.com/a/tickets/973
