@@ -1,5 +1,10 @@
 FROM rocker/binder:4.3.2
 
+# Needed until https://github.com/rocker-org/rocker-versioned2/pull/740 is
+# merged
+ENV VIRTUAL_ENV=/opt/venv
+ENV PATH=${VIRTUAL_ENV}/bin:${PATH}
+
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache -r /tmp/requirements.txt
 
