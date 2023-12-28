@@ -5,6 +5,8 @@ FROM rocker/binder:4.3.2
 ENV VIRTUAL_ENV=/opt/venv
 ENV PATH=${VIRTUAL_ENV}/bin:${PATH}
 
+RUN id && ls -la ${VIRTUAL_ENV}
+
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache -r /tmp/requirements.txt
 
