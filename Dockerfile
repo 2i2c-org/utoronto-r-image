@@ -1,7 +1,16 @@
 FROM rocker/binder:4.3.2
 
+# Needed until https://github.com/rocker-org/rocker-versioned2/pull/740 is
+# merged
+ENV VIRTUAL_ENV=/opt/venv
+ENV PATH=${VIRTUAL_ENV}/bin:${PATH}
+
+USER root
+
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache -r /tmp/requirements.txt
+
+USER ${NB_USER}
 
 # Install learnr and other requested packages in https://2i2c.freshdesk.com/a/tickets/741
 # mosaic installed per https://2i2c.freshdesk.com/a/tickets/973
