@@ -5,6 +5,13 @@ USER root
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache -r /tmp/requirements.txt
 
+# Install packages needed for quarto knitting to PDF
+RUN tlmgr install \
+    scrartcl.cls \
+    footnote.sty \
+    tikzfill.image.sty \
+    bookmark.sty
+
 USER ${NB_USER}
 
 # Install learnr and other requested packages in https://2i2c.freshdesk.com/a/tickets/741
