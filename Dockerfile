@@ -7,9 +7,9 @@ RUN pip install --no-cache -r /tmp/requirements.txt
 
 # Install packages needed for quarto knitting to PDF
 RUN tlmgr install \
-    scrartcl \
-    footnote \
-    tikzfill.image \
+    koma-script \
+    mdwtools \
+    tikzfill \
     bookmark
 
 USER ${NB_USER}
