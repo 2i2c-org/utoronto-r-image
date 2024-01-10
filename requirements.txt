@@ -7,3 +7,5 @@ nbgitpuller==1.2.0
 jupyter-shiny-proxy==1.1
 # Based on request from Nathan Taback
 otter-grader==5.2.2
+# For pulling from private repositories
+git-credential-helpers==0.2
