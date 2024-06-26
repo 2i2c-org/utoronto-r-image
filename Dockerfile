@@ -16,6 +16,7 @@ USER ${NB_USER}
 
 # Install learnr and other requested packages in https://2i2c.freshdesk.com/a/tickets/741
 # mosaic installed per https://2i2c.freshdesk.com/a/tickets/973
+# kaleido installed per https://2i2c.freshdesk.com/a/tickets/1783
 RUN install2.r --skipinstalled \
     learnr \
     XLConnect \
@@ -33,6 +34,7 @@ RUN install2.r --skipinstalled \
     ggmap \
     quantmod \
     mosaic \
+    kaleido \
     && rm -rf /tmp/downloaded_packages
 
 # Set working directory so Jupyter knows where to start
