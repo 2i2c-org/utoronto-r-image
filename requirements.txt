@@ -9,4 +9,4 @@ jupyter-shiny-proxy==1.1
 otter-grader==5.2.2
 # For pulling from private repositories
 git-credential-helpers==0.2
-tensorflow
+tensorflow-cpu
