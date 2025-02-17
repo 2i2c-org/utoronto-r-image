@@ -33,6 +33,8 @@ RUN install2.r --skipinstalled \
     ggmap \
     quantmod \
     mosaic \
+    tensorflow \
+    keras \
     && rm -rf /tmp/downloaded_packages
 
 # Set working directory so Jupyter knows where to start
