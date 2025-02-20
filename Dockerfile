@@ -1,4 +1,4 @@
-FROM rocker/binder:4.4
+FROM rocker/binder:4.3.2
 
 USER root
 
@@ -6,8 +6,7 @@ COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache -r /tmp/requirements.txt
 
 # Install packages needed for quarto knitting to PDF
-RUN tlmgr update --self && \
-    tlmgr install \
+RUN tlmgr install \
     koma-script \
     mdwtools \
     tikzfill \
