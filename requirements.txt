@@ -1,5 +1,4 @@
-retrolab
-# Provide info on memory usage in JupyterLab & RetroLab
+# Provide info on memory usage in JupyterLab
 jupyter-resource-usage
 # People still wanna pull stuff, even if into RStudio
 nbgitpuller==1.2.2
