@@ -9,7 +9,7 @@ RUN apt-get update && apt-get -y install \
     texlive-pictures
 
 USER ${NB_USER}
-ENV CRAN="https://p3m.dev/cran/__linux__/noble/2025-07-29"
+
 # Install learnr and other requested packages in https://2i2c.freshdesk.com/a/tickets/741
 # mosaic installed per https://2i2c.freshdesk.com/a/tickets/973
 RUN install2.r --skipinstalled \
