@@ -6,6 +6,7 @@ RUN pip install --no-cache -r /tmp/requirements.txt
 
 RUN apt-get update && apt-get -y install \
     texlive-latex-recommended \
+    texlive-fonts-recommended \
     texlive-pictures
 
 USER ${NB_USER}
