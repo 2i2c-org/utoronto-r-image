@@ -11,6 +11,9 @@ RUN tlmgr install \
     mdwtools \
     tikzfill \
     bookmark
+# Imagemagick for hexSticker
+RUN apt-get update && \
+    apt-get -y install --no-install-recommends libmagick++-dev
 
 USER ${NB_USER}
 
@@ -36,7 +39,6 @@ RUN install2.r --skipinstalled \
     tensorflow \
     keras3 \
     && rm -rf /tmp/downloaded_packages
-
 # Set working directory so Jupyter knows where to start
 WORKDIR /home/rstudio
 
