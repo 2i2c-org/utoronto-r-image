@@ -8,8 +8,6 @@ RUN apt-get update && \
 
 USER ${NB_USER}
 
-# Install learnr and other requested packages in https://2i2c.freshdesk.com/a/tickets/741
-# mosaic installed per https://2i2c.freshdesk.com/a/tickets/973
 COPY install.r /tmp/install.r
 RUN Rscript /tmp/install.r
 
