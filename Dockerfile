@@ -1,40 +1,21 @@
 FROM rocker/binder:latest@sha256:9c1bb3dc842755c4ac57b6e5ab78dd353c0f4790bdcd7d1f780b6dff38435d9a
 USER root
 
-COPY requirements.txt /tmp/requirements.txt
-RUN pip install --no-cache -r /tmp/requirements.txt
-
-RUN apt-get update && apt-get -y install \
-    texlive-latex-recommended \
-    texlive-fonts-recommended \
-    texlive-pictures \
-    lmodern
+COPY apt.txt /tmp/apt.txt
+RUN apt-get update && \
+    # Ignore comments in packages
+    grep '^\s*[^#]\+' /tmp/apt.txt | xargs apt-get -y install
 
 USER ${NB_USER}
 
 # Install learnr and other requested packages in https://2i2c.freshdesk.com/a/tickets/741
 # mosaic installed per https://2i2c.freshdesk.com/a/tickets/973
-RUN install2.r --skipinstalled \
-    --repos https://p3m.dev/cran/__linux__/noble/2025-07-29 \
-    learnr \
-    XLConnect \
-    ggvis \
-    dygraphs \
-    DT \
-    networkD3 \
-    threeJS \
-    lme4 \
-    randomForest \
-    multcomp \
-    vcd \
-    glmnet \
-    caret \
-    ggmap \
-    quantmod \
-    mosaic \
-    tensorflow \
-    keras3 \
-    && rm -rf /tmp/downloaded_packages
+COPY install.r /tmp/install.r
+RUN Rscript /tmp/install.r
+
+
+COPY environment.yml /tmp/environment.yml
+RUN conda env update --file /tmp/environment.yml
 
 # Set working directory so Jupyter knows where to start
 WORKDIR /home/rstudio
