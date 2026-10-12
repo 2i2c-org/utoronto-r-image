@@ -11,9 +11,9 @@ USER ${NB_USER}
 COPY install.r /tmp/install.r
 RUN Rscript /tmp/install.r
 
-
-COPY environment.yml /tmp/environment.yml
-RUN conda env update --file /tmp/environment.yml
+# Install Python dependencies
+COPY requirements.txt /tmp/requirements.txt
+RUN uv pip install --no-cache-dir -r /tmp/requirements.txt
 
 # Set working directory so Jupyter knows where to start
 WORKDIR /home/rstudio
