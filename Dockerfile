@@ -13,7 +13,7 @@ RUN Rscript /tmp/install.r
 
 # Install Python dependencies
 COPY requirements.txt /tmp/requirements.txt
-RUN uv pip install --no-cache-dir -r /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 # Set working directory so Jupyter knows where to start
 WORKDIR /home/rstudio
