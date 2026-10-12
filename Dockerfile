@@ -1,4 +1,4 @@
-FROM rocker/binder:latest@sha256:9c1bb3dc842755c4ac57b6e5ab78dd353c0f4790bdcd7d1f780b6dff38435d9a
+FROM rocker/binder:latest@sha256:fb78d0c4bcfc9ece1f8ea22ef87fdcf82874b087ec94eedbab5e02667f570b75
 USER root
 
 COPY apt.txt /tmp/apt.txt
