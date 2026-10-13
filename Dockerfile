@@ -1,4 +1,4 @@
-FROM rocker/binder:latest@sha256:9c1bb3dc842755c4ac57b6e5ab78dd353c0f4790bdcd7d1f780b6dff38435d9a
+FROM rocker/binder:latest@sha256:fb78d0c4bcfc9ece1f8ea22ef87fdcf82874b087ec94eedbab5e02667f570b75
 USER root
 
 COPY apt.txt /tmp/apt.txt
@@ -11,9 +11,9 @@ USER ${NB_USER}
 COPY install.r /tmp/install.r
 RUN Rscript /tmp/install.r
 
-
-COPY environment.yml /tmp/environment.yml
-RUN conda env update --file /tmp/environment.yml
+# Install Python dependencies
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 # Set working directory so Jupyter knows where to start
 WORKDIR /home/rstudio
