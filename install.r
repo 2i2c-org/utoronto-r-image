@@ -1,6 +1,7 @@
 # Install learnr and other requested packages in https://2i2c.freshdesk.com/a/tickets/741
 # mosaic installed per https://2i2c.freshdesk.com/a/tickets/973
 install.packages(c(
+'dplyr',                   
 'learnr',
 'XLConnect',
 'ggvis',
